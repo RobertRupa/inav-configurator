@@ -3256,5 +3256,8 @@
     },
     "motor_poles": {
         "message": "Number of motor poles (number of magnets)"
+    },
+    "configurationCurrentMeterType": {
+        "message": "Current Meter Source"
     }
 }

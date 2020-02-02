@@ -292,7 +292,8 @@ var FC = {
             battery_capacity: 0,
             battery_capacity_warning: 0,
             battery_capacity_critical: 0,
-            battery_capacity_unit: 'mAh'
+            battery_capacity_unit: 'mAh',
+            current_meter_type: 'ADC'
         };
 
         BATTERY_CONFIG = {
@@ -697,6 +698,14 @@ var FC = {
             'Japanese MSAS',
             'Indian GAGAN',
             'Disabled'
+        ];
+    },
+    getCurrentMeterType: function () {
+        return [
+            'NONE',
+            'ADC',
+            'VIRTUAL',
+            'ESC'
         ];
     },
     getRxTypes: function() {

@@ -359,6 +359,22 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
         $('#currentscale').val(BF_CONFIG.currentscale);
         $('#currentoffset').val(BF_CONFIG.currentoffset / 10);
 
+        //fill current source
+        var currentMeterType = FC.getCurrentMeterType();
+        var current_meter_type_e = $('#currentMeterType');
+        console.log(Settings.getInputValue('current_meter_type'));
+        
+        // for (i = 0; i < currentMeterType.length; i++) {
+        //     current_meter_type_e.append('<option value="' + currentMeterType[i] + '">' + currentMeterType[i] + '</option>');
+        // }
+
+        // current_meter_type_e.change(function () {
+        //     MISC.current_meter_type = parseInt($(this).val());
+        // });
+
+        // current_meter_type_e.val(MISC.current_meter_type);
+
+
         // fill battery capacity
         $('#battery_capacity').val(MISC.battery_capacity);
         $('#battery_capacity_warning').val(MISC.battery_capacity_warning * 100 / MISC.battery_capacity);
@@ -596,6 +612,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
             MISC.battery_capacity_warning = parseInt($('#battery_capacity_warning').val() * MISC.battery_capacity / 100);
             MISC.battery_capacity_critical = parseInt($('#battery_capacity_critical').val() * MISC.battery_capacity / 100);
             MISC.battery_capacity_unit = $('#battery_capacity_unit').val();
+            MISC.current_meter_type = $('#currentMeterType').val();
 
             _3D.deadband3d_low = parseInt($('#3ddeadbandlow').val());
             _3D.deadband3d_high = parseInt($('#3ddeadbandhigh').val());

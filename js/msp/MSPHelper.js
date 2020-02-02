@@ -378,8 +378,10 @@ var mspHelper = (function (gui) {
                 MISC.battery_capacity_warning = data.getUint32(offset, true);
                 offset += 4;
                 MISC.battery_capacity_critical = data.getUint32(offset, true);
-                offset += 4;
+                console.log(data.getUint8(offset));
                 MISC.battery_capacity_unit = (data.getUint8(offset++) ? 'mWh' : 'mAh');
+                //offset += 2;
+                //console.log(data.getUint16(offset));
                 break;
             case MSPCodes.MSPV2_INAV_SET_MISC:
                 console.log('MISC INAV Configuration saved');
@@ -1632,6 +1634,7 @@ var mspHelper = (function (gui) {
                 buffer.push(Math.round(MISC.vbatmincellvoltage * 10));
                 buffer.push(Math.round(MISC.vbatmaxcellvoltage * 10));
                 buffer.push(Math.round(MISC.vbatwarningcellvoltage * 10));
+                // buffer.push(MISC.current_meter_type);
                 break;
             case MSPCodes.MSPV2_INAV_SET_MISC:
                 buffer.push(lowByte(MISC.midrc));
@@ -1669,6 +1672,7 @@ var mspHelper = (function (gui) {
                 for (byte_index = 0; byte_index < 4; ++byte_index)
                     buffer.push(specificByte(MISC.battery_capacity_critical, byte_index));
                 buffer.push((MISC.battery_capacity_unit == 'mAh') ? 0 : 1);
+                // buffer.push(MISC.current_meter_type);
                 break;
             case MSPCodes.MSPV2_INAV_SET_BATTERY_CONFIG:
                 buffer.push(lowByte(BATTERY_CONFIG.vbatscale));

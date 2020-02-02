@@ -6,7 +6,7 @@ var Settings = (function () {
     self.configureInputs = function() {
         var inputs = [];
         $('[data-setting!=""][data-setting]').each(function() {
-            inputs.push($(this));
+            inputs.push($(this));console.log($(this));
         });
         return Promise.mapSeries(inputs, function (input, ii) {
             var settingName = input.data('setting');
@@ -109,7 +109,7 @@ var Settings = (function () {
     self.saveInputs = function() {
         var inputs = [];
         $('[data-setting!=""][data-setting]').each(function() {
-            inputs.push($(this));
+            inputs.push($(this));console.log($(this));
         });
         return Promise.mapSeries(inputs, function (input, ii) {
             return self.saveInput(input);
@@ -122,7 +122,7 @@ var Settings = (function () {
         };
     };
 
-    self.getInputValue = function(settingName) {
+    self.getInputValue = function(settingName) {console.log(settingName, $('[data-setting="' + settingName + '"]').val());
         return $('[data-setting="' + settingName + '"]').val();
     };
 
